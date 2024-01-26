@@ -23,18 +23,18 @@ pipeline {
     //     sh 'npx playwright test RegisterPass.spec.js --project chromium --reporter=line'
     //   }
     // }
-    stage('tc01-test backend authen') {
+    stage('Smoke test') {
       steps {
         sh '''
-          npx playwright test tc01_api.spec --project webkit --reporter=line
+          npx playwright test tc01.spec --project webkit --reporter=line
         '''
       }
     }
 
-    stage('tc02-test update role') {
+    stage('Regression test') {
       steps {
         sh '''
-          npx playwright test tc02_api.spec --project webkit --reporter=line
+          npx playwright test tc03.spec --project webkit --reporter=line
         '''
       }
     }
