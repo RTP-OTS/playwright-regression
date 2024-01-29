@@ -1,6 +1,6 @@
 const {test , expect} = require('@playwright/test')
 
-test ('Verify shop' , async ({page}) =>{
+test ('Verify - shop' , async ({page}) =>{
 
     const username = 'anshika@gmail.com';
     const password = 'Iamking@000';
