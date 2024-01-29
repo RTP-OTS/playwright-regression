@@ -23,7 +23,7 @@ pipeline {
     //     sh 'npx playwright test RegisterPass.spec.js --project chromium --reporter=line'
     //   }
     // }
-    stage('Smoke test') {
+    stage('Verify contents page') {
       steps {
         sh '''
           npx playwright test tc01.spec --project webkit --reporter=line
@@ -31,7 +31,7 @@ pipeline {
       }
     }
 
-    stage('Regression test') {
+    stage('Verify shop end flow') {
       steps {
         sh '''
           npx playwright test tc04.spec --project webkit --reporter=line
