@@ -4,13 +4,18 @@ test('SC01' , async ({page})=>{
     const userName =  page.locator("#username")
     const password =  page.locator("#password")
     const btnLogin =  page.locator("#signInBtn")
-    const cardItem =  await page.locator(".card-body a")
+    const cardItem =  page.locator(".card-body a")
+    const terms = page.locator('#terms')
 
     await page.goto('https://rahulshettyacademy.com/loginpagePractise/')
     console.log(await page.title());
     await userName.fill("rahulshettyacademy");
-    await password.fill("learning");
+    await password.fill("learning")
     await page.locator("select.form-control").selectOption("teach");
+    await terms.click();
+    await expect(terms).toBeChecked();
+    await terms.uncheck();
+    expect(await terms.isChecked()).toBeFalsy();
     await btnLogin.click();
 
     console.log(await cardItem.first().textContent());

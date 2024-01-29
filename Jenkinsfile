@@ -34,7 +34,7 @@ pipeline {
     stage('Regression test') {
       steps {
         sh '''
-          npx playwright test tc03.spec --project webkit --reporter=line
+          npx playwright test tc04.spec --project webkit --reporter=line
         '''
       }
     }
