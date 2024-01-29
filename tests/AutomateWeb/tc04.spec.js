@@ -20,13 +20,18 @@ test ('Verify shop' , async ({page}) =>{
     expect(titileItem).toContain(productName);
 
     const count = await product.count();
-    for(let i=0; i < count; ++i)
-    {
-        if(await product.nth(i).locator("b").textContent() === productName)
-    {
+    for(let i=0; i < count; ++i){
+        const productText = await product.nth(i).locator("b").textContent()
+        if(productText === productName){
             await product.nth(i).getByText("Add To Cart").click();
             break;
         }
     }
+
+    //step3
+    await page.locator('[routerlink="/dashboard/cart"]').click();
+    const itemIncart = await page.locator(".cartSection h3")
+    console.log(await itemIncart.textContent());
+    await expect(itemIncart).toContainText(productName)
 
 });
