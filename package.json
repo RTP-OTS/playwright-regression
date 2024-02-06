@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test" : "npx playwright test tc06-api.spec.js --reporter=list",
     "regressiontest": "npx playwright test AutomateWeb/tc01.spec.js --reporter=list",
     "smoketest_backend": "npx playwright test ApiTesting/tc01_api.spec.js --reporter=list",
     "apitest": "npx playwright test ApiTesting/tc02_api.spec.js --reporter=list"

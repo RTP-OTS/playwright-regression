@@ -27,7 +27,7 @@ module.exports = defineConfig({
 
     browserName : 'chromium',
     headless : true,
-    trace: 'on-first-retry',
+    trace: 'on',
   },
 
   /* Configure projects for major browsers */
