@@ -17,13 +17,13 @@ test ('Verify - shop' , async ({page}) =>{
     await page.waitForLoadState('networkidle');
     const titileItem = await page.locator(".card-body b").allTextContents();
     console.log(titileItem);
-    expect(titileItem).toContain(productName);
+    expect(titileItem).toContain(JSON.productName);
 
     const count = await product.count();
     let i = 0;
     while (i < count) {
         const productText = await product.nth(i).locator("b").textContent();
-        if (productText === productName) {
+        if (productText === JSON.productName) {
             await product.nth(i).getByText("Add To Cart").click();
             break;
         }
@@ -34,7 +34,7 @@ test ('Verify - shop' , async ({page}) =>{
     await page.locator('[routerlink="/dashboard/cart"]').click();
     const itemIncart = await page.locator(".cartSection h3")
     console.log(await itemIncart.textContent());
-    await expect(itemIncart).toContainText(productName)
+    await expect(itemIncart).toContainText(JSON.productName)
 
     await page.locator("div li").first().waitFor();
     const bool = await page.locator("h3:has-text('ADIDAS ORIGINAL')").isVisible();
