@@ -38,5 +38,14 @@ pipeline {
         '''
       }
     }
+
+  
+    stage('test with jsondata ') {
+      steps {
+        sh '''
+          npx playwright test tc07.spec --project webkit --reporter=line
+        '''
+      }
+    }
   }
 }
