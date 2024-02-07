@@ -2,11 +2,6 @@ const {test , expect} = require('@playwright/test')
 const JSON = require('../../page/datatest.json')
 
 test ('Verify - shop' , async ({page}) =>{
-    const username = 'anshika@gmail.com';
-    const password = 'Iamking@000';
-    const productName = "ADIDAS ORIGINAL";
-    const product = page.locator(".card-body");
-
     //step1
     await page.goto(JSON.baseUrl);
     await page.locator("#userEmail").fill(JSON.user.username);
@@ -16,9 +11,9 @@ test ('Verify - shop' , async ({page}) =>{
     //step2
     await page.waitForLoadState('networkidle');
     const titileItem = await page.locator(".card-body b").allTextContents();
-    console.log(titileItem);
+    //console.log(titileItem);
     expect(titileItem).toContain(JSON.productName);
-
+    const product = page.locator(".card-body");
     const count = await product.count();
     let i = 0;
     while (i < count) {
@@ -54,7 +49,7 @@ test ('Verify - shop' , async ({page}) =>{
         }
     }
   
-    expect(page.locator(".user__name [type='text']").first()).toHaveText(username);
+    expect(page.locator(".user__name [type='text']").first()).toHaveText(JSON.user.username);
     await page.locator(".action__submit").click();
     await expect(page.locator(".hero-primary")).toHaveText(" Thankyou for the order. ");
     const orderId = await page.locator(".em-spacer-1 .ng-star-inserted").textContent();

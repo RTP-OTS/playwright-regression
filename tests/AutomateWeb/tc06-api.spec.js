@@ -2,7 +2,7 @@ const {test , expect} = require('@playwright/test')
 const JSON = require('../../page/datatest.json')
 
 let webcontext;
-test.beforeAll(async({browser})=>{
+test.beforeAll(async({ browser }) => { 
     const context = await browser.newContext();
     const page = await context.newPage();
     await page.goto(JSON.baseUrl);

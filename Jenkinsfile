@@ -38,7 +38,6 @@ pipeline {
         '''
       }
     }
-
   
     stage('test with jsondata ') {
       steps {

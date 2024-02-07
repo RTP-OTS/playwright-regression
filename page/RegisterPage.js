@@ -63,6 +63,9 @@ exports.RegisterPage = class RegisterPage {
         if (!isNewsletterChecked) {
           await this.newsletter_checkbox.click();
         }
+        else{
+            await this.newsletter_checkbox.c();
+        }
       }
     async inputnewPassword (NewPassword){
         await this.newpassword_textbox
