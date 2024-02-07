@@ -1,5 +1,5 @@
 const {test , expect} = require('@playwright/test')
-const JSON = require('../../page/config.json')
+const JSON = require('../../page/datatest.json')
 
 test ('Verify - shop' , async ({page}) =>{
     const username = 'anshika@gmail.com';
