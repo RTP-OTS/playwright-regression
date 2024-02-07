@@ -5,7 +5,7 @@ const { DashboardPage } = require('../../pageobject/dashboard_web');
 
 test ('test app' , async ({page})=> {
     const loginPage = new LoginPage(page);
-    await loginPage.goTo()
+    await loginPage.goTo(JSONdata.baseUrl)
     await loginPage.validLogin(JSONdata.user.username,JSONdata.user.password)
     const dashboardPage = new DashboardPage(page);
     await dashboardPage.searchProductAddCart(JSONdata.productName)

@@ -11,7 +11,7 @@ class LoginPage {
     
     async goTo()
     {
-        await this.page.goto("https://rahulshettyacademy.com/client");
+        await this.page.goto("https://rahulshettyacademy.com/client/");
     }
     
     async validLogin(username,password)
