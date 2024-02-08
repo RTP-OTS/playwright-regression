@@ -10,4 +10,5 @@ test ('test app' , async ({page})=> {
     const dashboardPage = new DashboardPage(page);
     await dashboardPage.searchProductAddCart(JSONdata.productName)
     await dashboardPage.navigateToCart();
+    
 });

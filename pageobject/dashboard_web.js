@@ -16,7 +16,7 @@ async searchProductAddCart(productName)
 {
    
     const titles= await this.productsText.allTextContents();
-    console.log(titles);
+    //console.log(titles);
     const count = await this.products.count();
     for(let i =0; i < count; ++i)
     {

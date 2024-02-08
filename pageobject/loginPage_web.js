@@ -1,3 +1,5 @@
+const { url } = require("inspector");
+
 class LoginPage {
 
     constructor(page)
@@ -9,9 +11,9 @@ class LoginPage {
     
     }
     
-    async goTo()
+    async goTo(url)
     {
-        await this.page.goto("https://rahulshettyacademy.com/client/");
+        await this.page.goto(url);
     }
     
     async validLogin(username,password)
