@@ -9,7 +9,14 @@ pipeline {
     nodejs 'NodeJS 20.9'
     // Specify other tools as needed
   }
-
+  stages {
+    stage('install playwright') {
+      steps {
+        sh '''
+          npm i -D @playwright/test
+        '''
+      }
+    }
     // stage('test register page') {
     //   steps {
     //     sh 'npx playwright test RegisterPass.spec.js --project chromium --reporter=line'
@@ -38,5 +45,5 @@ pipeline {
         '''
       }
     }
-  
+  }
 }
